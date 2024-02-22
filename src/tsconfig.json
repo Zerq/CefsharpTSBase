@@ -1,0 +1,16 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "inlineSources": true,
+    "module": "ES6",
+    "target": "ES6",
+    "outDir": "../wwwroot/app"
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Platforms>x64</Platforms>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+	  <Platforms>AnyCPU;x64</Platforms>
+	  
+  </PropertyGroup>
+	
+	<PropertyGroup Condition="'$(PlatformTarget)' == 'x64'">
+		<RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>
+		<SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+	</PropertyGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="wwwroot\**" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
+    <PackageReference Include="CefSharp.OffScreen.NETCore" Version="121.3.70" />
+    <PackageReference Include="CefSharp.WinForms.NETCore" Version="121.3.70" />
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="121.3.70" />
+    <PackageReference Include="System.Speech" Version="8.0.0" />
+  </ItemGroup>
+	<ItemGroup>
+	  <Content Update="wwwroot\comic.x.cbz" Link="src\app\comic.x.cbz" />
+	  <Content Update="wwwroot\index.html" Link="src\app\index.html" />
+	</ItemGroup>
+</Project>
